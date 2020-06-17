@@ -19,13 +19,14 @@ const insertChats = (request) => {
     });
 }
 
-const getChats = new Promise((resolve, reject) => {
-    client.query('SELECT * FROM chats')
-    .then(result =>{
-        resolve(result.rows);
-    })
-    .catch(e => console.error(e.stack))
-});
+const getChats = (roomName) => {
+    return new Promise ((resolve, reject) =>{
+        client.query("SELECT * FROM chats WHERE room = '"+roomName+"' ORDER BY date_time ASC;").then(result =>{
+            resolve(result.rows);
+        })
+        .catch(e => console.error(e.stack))
+    });
+}
 
 module.export = {
     getChats,

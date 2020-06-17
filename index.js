@@ -1,4 +1,5 @@
-const app = require('express')();
+const express = require('express');
+const app = express();
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
 const port = process.env.PORT || 3000;
@@ -8,20 +9,26 @@ server.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
 
+app.use(express.static('public'));
+
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/public/index.html');
 });
 
-app.get('/javascript', (req, res) => {
-    res.sendFile(__dirname + '/public/javascript.html');
+app.get('/chillout', (req, res) => {
+    res.sendFile(__dirname + '/public/chillout.html');
 });
 
-app.get('/swift', (req, res) => {
-    res.sendFile(__dirname + '/public/swift.html');
+app.get('/nightlife', (req, res) => {
+    res.sendFile(__dirname + '/public/nightlife.html');
 });
 
-app.get('/css', (req, res) => {
-    res.sendFile(__dirname + '/public/css.html');
+app.get('/seriesenmovies', (req, res) => {
+    res.sendFile(__dirname + '/public/seriesenmovies.html');
+});
+
+app.get('/sports', (req, res) => {
+    res.sendFile(__dirname + '/public/sports.html');
 });
 
 //tech namespace
