@@ -1,0 +1,52 @@
+@charset"UTF-8";
+
+.chatroom-main-bg{
+    background-color: #3c3c3c;
+}
+
+.line-height-5{
+    line-height:17px;
+}
+.filler{
+    height:300px;
+}
+
+@media only screen and (min-width: 770px) {
+    .chatroom-main-bg{
+        background-color: lightgrey;
+    }
+
+    .chatroom-pc-main-bg{
+        background-color: #3c3c3c;
+    }
+   .chat-bg-left{
+       background-color: #3c3c3c;
+       border-top-left-radius: 15px;
+       border-top-right-radius: 15px;
+       border-bottom-right-radius: 15px;
+   }
+   .overflow-scroll{
+       overflow:auto;
+   }
+
+   .chat-bg-right{
+    background-color: #0b7ce4;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+   .chat-container{
+       .row{
+           .col-md-7{
+               p{
+                   span{
+                       font-size:20px;
+                       color:grey;
+                   }
+                   color:white;
+               }
+           }
+       }
+
+   }
+}
