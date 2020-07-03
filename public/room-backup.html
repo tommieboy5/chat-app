@@ -1,0 +1,45 @@
+<html>
+
+<body>
+    <form name="form">
+        <input id="m" />
+        <input type="submit" />
+    </form>
+    <div id="messages"></div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const username = localStorage.getItem('userName');
+        const room = $(location).attr("pathname").replace('/', '');
+
+        const socket = io('/tech');
+        $('form').submit(() => {
+            let msg = $('#m').val()
+            socket.emit('message', { msg, room, username });
+            $('#m').val('');
+            return false;
+        });
+
+        socket.on('history', (history) => {
+            console.log('history');
+            history.forEach((message) => {
+                console.log(message.message);
+                $('#messages').append($('<li>').text(message.message.username + ': ' + message.message.msg));
+            });
+        })
+
+        socket.on('connect', () => {
+            //emit to everybody
+            socket.emit('join', { room: room });
+        });
+
+        socket.on('message', (msg) => {
+            console.log(msg);
+            $('#messages').append($('<li>').text(msg.username + ': ' + msg.msg));
+        })
+    </script>
+</body>
+
+</html>

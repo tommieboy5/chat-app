@@ -36,7 +36,6 @@ input{
 
 }
 
-
 .nickname_container {
     background-color: #3c3c3c;
     border-radius: 50px;
@@ -84,7 +83,7 @@ input{
         background-color: #282828;
       }
       .responsive-text-center{
-          text-align: center;
+        text-align:center!important;
       }
       .color-primary-css{
         color: #545454;
@@ -92,13 +91,70 @@ input{
     .responsive-hidden{
         display:none!important;
     }
-    .responsive-text-align-center{
-        text-align:center!important;
-    }
   }
 
   //Nickname page ----------------------------------------------------------------------------------
-
   //chatroom page ------------------------------------------------------------------------------------
-
+    .active{
+        background-color:#007ef4;
+        border-top-left-radius:10px;
+        border-top-right-radius:10px;
+        border-bottom-left-radius:10px;
+    }
   //chatroom page -------------------------------------------------------------------------------------
+
+  //index-test ----------------------------------------------------------------------------------------
+
+  html,body,#wrapper {
+    height:100%;
+    margin:0;
+    padding:0;
+}
+#wrapper {
+    position:relative;
+}
+
+#top, #middle, #bottom {
+    position:absolute;
+}
+
+#top {
+    height:125px;
+    width:100%;
+}
+#middle {
+    top:125px;
+    bottom:125px;
+    width:100%;
+
+}
+#bottom {
+    bottom:0;
+    height:125px;
+    width:100%;
+}
+
+.vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  .nickname-container{
+    a:hover{
+        pointer-events:none;
+    }
+  }
+  .form-right{
+    float:right;
+    width: 50%;
+  }
+  .chat-submit{
+    background-color: #3c3c3c;
+    border-radius: 50px;
+    height: 54px;
+  }
+
+
+  
